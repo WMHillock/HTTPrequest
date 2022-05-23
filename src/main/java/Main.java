@@ -28,8 +28,8 @@ public class Main {
         List<Post> posts = mapper.readValue(response.getEntity().getContent(), new TypeReference<>() {
         });
         posts.stream()
-                .filter(v -> v.getUpvotes() != null)
-                .sorted((o1, o2) -> Integer.valueOf(o2.getUpvotes()).compareTo(Integer.valueOf(o1.getUpvotes())))
+                .filter(v -> v.getUpvotes() != 0)
+                .sorted((o1, o2) -> o2.getUpvotes().compareTo(o1.getUpvotes()))
                 .forEach(System.out::println);
     }
 }
