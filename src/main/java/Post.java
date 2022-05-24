@@ -37,7 +37,7 @@ public class Post {
         return user;
     }
 
-    public Integer getUpvotes() {
+    public int getUpvotes() {
         return upvotes;
     }
     @Override

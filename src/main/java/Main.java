@@ -7,6 +7,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -29,7 +30,7 @@ public class Main {
         });
         posts.stream()
                 .filter(v -> v.getUpvotes() != 0)
-                .sorted((o1, o2) -> o2.getUpvotes().compareTo(o1.getUpvotes()))
+                .sorted(Comparator.comparing(Post::getUpvotes).reversed())
                 .forEach(System.out::println);
     }
 }
